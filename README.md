@@ -49,19 +49,13 @@ pip install -r requirements.txt
 
 ## ⚙️ How to Run the Project
 
-1. **Run the Scraper**  
-   Scrape the bus data by running:
-   ```bash
-   python scraper.py
-   ```
-
-2. **Launch the Streamlit Application**  
+1. **Launch the Streamlit Application**  
    Start the UI by running:
    ```bash
    streamlit run ui.py
    ```
 
-3. **Interact with the Application**  
+2. **Interact with the Application**  
    - Enter the **pickup** and **drop** locations.
    - View available buses, prices, timings, seat availability, and more.
    - Apply filters such as bus type, star ratings, price range, and availability.
@@ -104,4 +98,16 @@ pip install -r requirements.txt
 
 ## 🎯 Project Goals
 - Scrape a minimum of 10 government and private buses.
-- Design
+- Design a clean and efficient SQL database.
+- Build a user-friendly and interactive Streamlit application.
+- Ensure high data accuracy and fast application performance.
+
+---
+
+## 📑 References
+- [Selenium Documentation](https://www.selenium.dev/documentation/webdriver/elements/locators/)
+- [Streamlit Documentation](https://docs.streamlit.io/get-started/installation)
+- [Redbus Website](https://www.redbus.in/)
+
+---
+
