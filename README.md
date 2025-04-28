@@ -20,8 +20,8 @@ This project aims to automate and streamline data collection for travel aggregat
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/redbus-data-scraper.git
-cd redbus-data-scraper
+git clone https://github.com/Jaisrinivaspk/Redbus_Scraper.git
+cd Redbus_Scraper
 ```
 
 ### 2. Create a Virtual Environment
