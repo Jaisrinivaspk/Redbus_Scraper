@@ -11,12 +11,12 @@ import time
 from datetime import datetime
 import re
 
-def scrape_redbus_data():
+def scrape_redbus_data(s,d):
     today = datetime.now()
     day = today.day
     month_year = today.strftime('%b %Y')  # Month in abbreviated form (e.g., "Apr")
     print(month_year)
-    
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     
@@ -26,14 +26,14 @@ def scrape_redbus_data():
 
         
         src = driver.find_element(By.ID, "src")
-        s='Bangalore'
+        
         src.send_keys(s)
         time.sleep(1)
         src.send_keys(Keys.DOWN, Keys.ENTER)
 
         
         dest = driver.find_element(By.ID, "dest")
-        d='Chennai'
+        
         dest.send_keys(d)
         time.sleep(1)
         dest.send_keys(Keys.DOWN, Keys.ENTER)
@@ -203,7 +203,10 @@ def scrape_redbus_data():
                 print(f"Error scraping a bus: {str(e)}")
         
         
-        return buses
+        df=pd.DataFrame(buses)
+        df.to_csv("redbus_data.csv", index=False)
+        store_data_to_sql('redbus_data.csv')
+        
         
     except Exception as e:
         print(f"An error occurred during scraping: {str(e)}")
@@ -213,14 +216,3 @@ def scrape_redbus_data():
         # Always close the driver
         driver.quit()
         print("WebDriver closed")
-
-if __name__ == "__main__":
-    data = scrape_redbus_data()
-    
-    if data:
-        df = pd.DataFrame(data)
-        df.to_csv("redbus_data.csv", index=False)
-        store_data_to_sql('redbus_data.csv')
-        print(f"Saved {len(df)} records to redbus_data.csv.")
-    else:
-        print("No data collected. Check the logs for errors.")
